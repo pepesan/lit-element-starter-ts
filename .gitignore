@@ -11,4 +11,5 @@ my-element.d.ts.map
 my-element.bundled.js
 package-lock.json
 .idea
-components
+/componentes/
+/components/

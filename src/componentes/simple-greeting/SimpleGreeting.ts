@@ -1,6 +1,5 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {MyElement} from "../../my-element";
 
 @customElement('simple-greeting')
 export class SimpleGreeting extends LitElement {
@@ -23,6 +22,6 @@ export class SimpleGreeting extends LitElement {
 
 declare global {
     interface HTMLElementTagNameMap {
-        'simple-greeting': MyElement;
+        'simple-greeting': SimpleGreeting;
     }
 }
