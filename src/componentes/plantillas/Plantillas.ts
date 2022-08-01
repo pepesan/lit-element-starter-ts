@@ -10,6 +10,8 @@ export class Plantillas extends LitElement {
         text: 'Some witty text.',
     };
 
+    @property() colors = ['red', 'green', 'blue'];
+
     static override styles = css`
     
   `;
@@ -27,12 +29,27 @@ export class Plantillas extends LitElement {
     }
 
     override render() {
-        return html`
-            ${this.headerTemplate()}
-            ${this.articleTemplate()}
-            ${this.footerTemplate()}
-      <slot></slot>
-    `;
+        return this.article
+
+            ? html`<div>
+                    <h2>Welcome ${this.article.title}</h2>
+                    <p>${this.article.text}</p>
+                    ${this.headerTemplate()}
+                    ${this.articleTemplate()}
+                    ${this.footerTemplate()}
+                    <ul>
+                        ${this.colors.map((color) =>
+                                html`<li style="color: ${color}">Color: ${color}</li>`
+                        )}
+                    </ul>
+                </div>
+            `
+
+            : html`
+                <h2>No hay artículo</h2>
+                <slot></slot>
+            `;
+
     }
 }
 

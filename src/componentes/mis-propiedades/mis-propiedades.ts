@@ -30,7 +30,7 @@ export class MisPropiedades extends LitElement {
    * Propiedad con definición de tipo de dato
    */
   @property({type: String})
-  cadena = 'miCadena';
+  cadena :String = "";
 
 
   /**
@@ -49,6 +49,12 @@ export class MisPropiedades extends LitElement {
    */
   @state()
   protected _active = false;
+
+  constructor() {
+    super();
+    // initialize the properties
+    //this.cadena = "Cadena";
+  }
 
   override render() {
     return html`

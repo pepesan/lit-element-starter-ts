@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <title>&lt;my-element> Demo</title>
@@ -11,6 +11,7 @@
     <script type="module" src="../componentes/plantillas/Plantillas.js"></script>
     <script type="module" src="../componentes/mis-propiedades/mis-propiedades.js"></script>
     <script type="module" src="../componentes/lifecycle/mis-ciclos-de-vida.js"></script>
+    <script type="module" src="../componentes/eventos/mis-eventos.js"></script>
 
     <style>
       p {
@@ -24,9 +25,13 @@
       <p>This is child content</p>
     </my-element>
     <simple-greeting/>
+    <h2>Propiedades</h2>
+    <mis-propiedades cadena="Mi Valor"/>
     <h2>Plantillas</h2>
-    <mis-plantillas/>
-    <mis-propiedades/>
+    <mis-plantillas></mis-plantillas>
+    <h2>Ciclos de Vida</h2>
     <mis-ciclos-de-vida/>
+    <h2>Eventos</h2>
+    <mis-eventos/>
   </body>
 </html>
