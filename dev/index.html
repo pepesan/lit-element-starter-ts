@@ -27,8 +27,20 @@
     <simple-greeting/>
     <h2>Propiedades</h2>
     <mis-propiedades cadena="Mi Valor"/>
-    <h2>Plantillas</h2>
-    <mis-plantillas></mis-plantillas>
+    <h2>Plantillas true</h2>
+    <mis-plantillas entradaPresenta="true">
+      <div>
+        <h3>Mi contenido Slot</h3>
+        <p slot="one">Include me in slot "one".</p>
+      </div>
+
+    </mis-plantillas>
+    <h2>Plantillas false</h2>
+    <mis-plantillas entradaPresenta="false">
+      <div>
+        <h3>Mi contenido Slot</h3>
+      </div>
+    </mis-plantillas>
     <h2>Ciclos de Vida</h2>
     <mis-ciclos-de-vida/>
     <h2>Eventos</h2>

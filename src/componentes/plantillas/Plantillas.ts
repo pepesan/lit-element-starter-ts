@@ -10,6 +10,9 @@ export class Plantillas extends LitElement {
         text: 'Some witty text.',
     };
 
+    @property()
+    entradaPresenta: string =  "false";
+
     @property() colors = ['red', 'green', 'blue'];
 
     static override styles = css`
@@ -29,7 +32,7 @@ export class Plantillas extends LitElement {
     }
 
     override render() {
-        return this.article
+        return this.entradaPresenta === "true"
 
             ? html`<div>
                     <h2>Welcome ${this.article.title}</h2>
@@ -42,6 +45,7 @@ export class Plantillas extends LitElement {
                                 html`<li style="color: ${color}">Color: ${color}</li>`
                         )}
                     </ul>
+                    <slot name="one"></slot>
                 </div>
             `
 
