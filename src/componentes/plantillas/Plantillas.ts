@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 @customElement('mis-plantillas')
 export class Plantillas extends LitElement {
@@ -10,10 +11,13 @@ export class Plantillas extends LitElement {
         text: 'Some witty text.',
     };
 
-    @property()
-    entradaPresenta: string =  "false";
+    @property({type: String})
+    entradaPresenta: String =  "false";
 
     @property() colors = ['red', 'green', 'blue'];
+
+    @property()
+    sindefinir: String = "";
 
     static override styles = css`
     
@@ -37,6 +41,7 @@ export class Plantillas extends LitElement {
             ? html`<div>
                     <h2>Welcome ${this.article.title}</h2>
                     <p>${this.article.text}</p>
+                    <h2>Variable sin definir: ${ifDefined(this.sindefinir)}</h2>
                     ${this.headerTemplate()}
                     ${this.articleTemplate()}
                     ${this.footerTemplate()}
@@ -45,6 +50,7 @@ export class Plantillas extends LitElement {
                                 html`<li style="color: ${color}">Color: ${color}</li>`
                         )}
                     </ul>
+                    
                     <slot name="one"></slot>
                 </div>
             `

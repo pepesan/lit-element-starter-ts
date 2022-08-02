@@ -7,9 +7,19 @@
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
     <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../componentes/mis-propiedades/mis-propiedades.js"></script>
     <script type="module" src="../componentes/simple-greeting/SimpleGreeting.js"></script>
     <script type="module" src="../componentes/plantillas/Plantillas.js"></script>
-    <script type="module" src="../componentes/mis-propiedades/mis-propiedades.js"></script>
+    <script type="module" src="../componentes/plantillas/Condicionales.js"></script>
+    <script type="module" src="../componentes/plantillas/When.js"></script>
+    <script type="module" src="../componentes/plantillas/Choose.js"></script>
+    <script type="module" src="../componentes/plantillas/Bucle.js"></script>
+    <script type="module" src="../componentes/plantillas/Repeat.js"></script>
+    <script type="module" src="../componentes/plantillas/Join.js"></script>
+    <script type="module" src="../componentes/plantillas/Range.js"></script>
+    <script type="module" src="../componentes/plantillas/SlotSimple.js"></script>
+    <script type="module" src="../componentes/plantillas/SlotComplejo.js"></script>
+    <script type="module" src="../componentes/plantillas/DirectivasDefault.js"></script>
     <script type="module" src="../componentes/lifecycle/mis-ciclos-de-vida.js"></script>
     <script type="module" src="../componentes/eventos/mis-eventos.js"></script>
 
@@ -41,6 +51,35 @@
         <h3>Mi contenido Slot</h3>
       </div>
     </mis-plantillas>
+    <h2>Condicionales</h2>
+    <mis-condicionales></mis-condicionales>
+    <mi-when></mi-when>
+    <mi-choose></mi-choose>
+    <mi-choose section="home"></mi-choose>
+    <h2>Bucles</h2>
+    <h3>Map</h3>
+    <mi-bucle></mi-bucle>
+    <h3>Repeat</h3>
+    <mi-repeat></mi-repeat>
+    <h3>Join</h3>
+    <mi-join></mi-join>
+    <h3>Range</h3>
+    <mi-range></mi-range>
+    <h3>Slots</h3>
+    <h4>Slot Simple</h4>
+    <mi-slot-simple>
+      <div>
+        <h6>Contenido del Slot</h6>
+      </div>
+    </mi-slot-simple>
+    <h4>Slot Complejo</h4>
+    <mi-slot-complejo>
+      <p slot="one">Include me in slot "one".</p>
+      <p slot="two">Include me in slot "two".</p>
+    </mi-slot-complejo>
+    <mi-slot-complejo></mi-slot-complejo>
+    <h2>Uso Directivas</h2>
+    <uso-directivas></uso-directivas>
     <h2>Ciclos de Vida</h2>
     <mis-ciclos-de-vida/>
     <h2>Eventos</h2>
