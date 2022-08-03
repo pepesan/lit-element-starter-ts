@@ -22,6 +22,13 @@
     <script type="module" src="../componentes/plantillas/DirectivasDefault.js"></script>
     <script type="module" src="../componentes/lifecycle/mis-ciclos-de-vida.js"></script>
     <script type="module" src="../componentes/eventos/mis-eventos.js"></script>
+    <script type="module" src="../componentes/estilos/MisEstilos.js"></script>
+    <script type="module" src="../componentes/estilos/CargaEstilos.js"></script>
+    <script type="module" src="../componentes/estilos/MiShadowDOM.js"></script>
+    <script type="module" src="../componentes/estilos/MisEstilosSlots.js"></script>
+    <script type="module" src="../componentes/estilos/Madre.js"></script>
+    <script type="module" src="../componentes/estilos/Hija.js"></script>
+    <script type="module" src="../componentes/estilos/MisVariables.js"></script>
 
     <style>
       p {
@@ -80,7 +87,34 @@
     <mi-slot-complejo></mi-slot-complejo>
     <h2>Uso Directivas</h2>
     <uso-directivas></uso-directivas>
+    <h2>Estilos</h2>
+    <mis-estilos></mis-estilos>
+    <h3>Estilos Externos</h3>
+    <carga-estilos></carga-estilos>
+    <h3>Shadow DOM</h3>
+    <mi-shadow-dom></mi-shadow-dom>
+    <mi-shadow-dom class="blue"></mi-shadow-dom>
+    <h3>Estilos Slots</h3>
+
+    <mis-estilos-slots>
+      <p>Stylable with ::slotted()</p>
+    </mis-estilos-slots>
+    <mis-estilos-slots>
+      <div><p>Not stylable with ::slotted()</p></div>
+    </mis-estilos-slots>
+    <mis-estilos-slots>
+      <div slot="hi"><p>Not stylable with ::slotted()</p></div>
+    </mis-estilos-slots>
+    <h3>Herencia de Estilos</h3>
+    <h4>Madre</h4>
+    <mi-madre></mi-madre>
+    <h4>Hija</h4>
+    <mi-hija></mi-hija>
     <h2>Ciclos de Vida</h2>
+    <h4>Variables CSS</h4>
+    <mis-variables></mis-variables>
+    <mis-variables class="rainbow"></mis-variables>
+
     <mis-ciclos-de-vida/>
     <h2>Eventos</h2>
     <mis-eventos/>
