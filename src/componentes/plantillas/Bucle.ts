@@ -13,9 +13,18 @@ export class Bucle extends LitElement {
     override render() {
         return html`
             <ul>
-                ${this.colors.map((color) =>
-                        html`<li style="color: ${color}">Color: ${color}</li>`
+                ${this.colors.map(
+                    // parámetro de entrada
+                    (item) => // arrow o flecha (arrow function o lambdas)
+                        html`<li style="color: ${item}">Color: ${item}</li>` // sentencias de la función
+                        // esto es com un return de lo que devulve html``
                 )}
+                <!--
+                    function (item:string){
+                        return html item;
+                    }
+                
+                -->
             </ul>
     `;
     }
