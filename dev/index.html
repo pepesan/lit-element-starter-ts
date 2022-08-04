@@ -22,6 +22,9 @@
     <script type="module" src="../componentes/plantillas/DirectivasDefault.js"></script>
     <script type="module" src="../componentes/lifecycle/mis-ciclos-de-vida.js"></script>
     <script type="module" src="../componentes/eventos/mis-eventos.js"></script>
+    <script type="module" src="../componentes/eventos/mis-eventos-constructor.js"></script>
+    <script type="module" src="../componentes/eventos/mis-eventos-personalizados.js"></script>
+    <script type="module" src="../componentes/eventos/mis-eventos-personalizados-captura.js"></script>
     <script type="module" src="../componentes/estilos/MisEstilos.js"></script>
     <script type="module" src="../componentes/estilos/CargaEstilos.js"></script>
     <script type="module" src="../componentes/estilos/MiShadowDOM.js"></script>
@@ -41,9 +44,9 @@
     <my-element>
       <p>This is child content</p>
     </my-element>
-    <simple-greeting/>
+    <simple-greeting></simple-greeting>
     <h2>Propiedades</h2>
-    <mis-propiedades cadena="Mi Valor"/>
+    <mis-propiedades cadena="Mi Valor"></mis-propiedades>
     <h2>Plantillas true</h2>
     <mis-plantillas entradaPresenta="true">
       <div>
@@ -115,8 +118,17 @@
     <mis-variables></mis-variables>
     <mis-variables class="rainbow"></mis-variables>
 
-    <mis-ciclos-de-vida/>
+    <mis-ciclos-de-vida></mis-ciclos-de-vida>
     <h2>Eventos</h2>
-    <mis-eventos/>
+    <mis-eventos></mis-eventos>
+    <h4>Eventos constructor</h4>
+    <mis-eventos-constructor></mis-eventos-constructor>
+    <h4>Dispatch Event</h4>
+    <mis-eventos-captura>
+      <mis-eventos-personalizados>
+
+      </mis-eventos-personalizados>
+    </mis-eventos-captura>
+
   </body>
 </html>
