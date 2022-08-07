@@ -20,6 +20,10 @@ export class Join extends LitElement {
             href: "#",
             label: "Estela"
         },
+        {
+            href: "#",
+            label: "Luisa"
+        },
     ];
 
     override render() {

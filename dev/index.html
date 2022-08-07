@@ -19,6 +19,7 @@
     <script type="module" src="../componentes/plantillas/Range.js"></script>
     <script type="module" src="../componentes/plantillas/SlotSimple.js"></script>
     <script type="module" src="../componentes/plantillas/SlotComplejo.js"></script>
+    <script type="module" src="../componentes/plantillas/OtroSlotComplejo.js"></script>
     <script type="module" src="../componentes/plantillas/DirectivasDefault.js"></script>
     <script type="module" src="../componentes/lifecycle/mis-ciclos-de-vida.js"></script>
     <script type="module" src="../componentes/eventos/mis-eventos.js"></script>
@@ -67,9 +68,13 @@
       </div>
     </mis-plantillas>
     <h2>Condicionales</h2>
+    <h3>mis-condicionales</h3>
     <mis-condicionales></mis-condicionales>
+    <h3>mi-when</h3>
     <mi-when></mi-when>
+    <h3>mi-choose</h3>
     <mi-choose></mi-choose>
+    <h3>mi-choose section="home"</h3>
     <mi-choose section="home"></mi-choose>
     <h2>Bucles</h2>
     <h3>Map</h3>
@@ -93,8 +98,28 @@
       <p slot="two">Include me in slot "two".</p>
     </mi-slot-complejo>
     <mi-slot-complejo></mi-slot-complejo>
+    <h4>Mi tabla slot complejo</h4>
+    <mi-otro-slot-complejo>
+      <h4>Antes</h4>
+      <div slot="header">
+        <h5>Header</h5>
+        <table>
+          <tr><td>hola</td></tr>
+        </table>
+      </div>
+      <div slot="footer">
+        Footer
+      </div>
+      <h4>Despues</h4>
+    </mi-otro-slot-complejo>
+
     <h2>Uso Directivas</h2>
+    <h4>uso-directivas</h4>
     <uso-directivas></uso-directivas>
+    <h4>uso-directivas sindefinir="hola"</h4>
+    <uso-directivas sindefinir="hola"></uso-directivas>
+    <h4>uso-directivas enable="false"</h4>
+    <uso-directivas enable="false"></uso-directivas>
     <h2>Estilos</h2>
     <mis-estilos></mis-estilos>
     <h3>Estilos Externos</h3>
@@ -144,3 +169,4 @@
     <mi-listado></mi-listado>
   </body>
 </html>
+

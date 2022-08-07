@@ -24,7 +24,7 @@ export class DirectivasDefault extends LitElement {
 
     override render() {
         // definimos las clases y su valor en booleano para incluirlas o no
-        const classes = { enabled: this.enabled, hidden: false };
+        const classes = { enabled: this.enabled, hidden: true };
         const styles = { backgroundColor: this.enabled ? 'blue' : 'gray', color: 'white' };
         return html`
             <h2>Variable sin definir: ${ifDefined(this.sindefinir)}</h2>

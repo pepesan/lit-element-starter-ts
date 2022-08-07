@@ -14,16 +14,16 @@ export class Choose extends LitElement {
 
     override render() {
 
-        return  html`      ${choose(this.section, [
-
-                    ['home', () => html`<h1>Home</h1>`],
-
-                    ['about', () => html`<h1>About</h1>`]
-
+        return  html`${
+            choose(
+                this.section, // valor a comprobar
+                [
+                    ['home', () => html`<h1>Home</h1>`], // caso "home"
+                    ['about', () => html`<h1>About</h1>`] // caso "about"
                 ],
-
-                () => html`<h1>Error</h1>`)}
-        `;
+                () => html`<h1>Error</h1>` // caso por defecto
+            )
+        }`;
 
     }
 }

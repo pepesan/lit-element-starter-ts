@@ -10,11 +10,16 @@ export class When extends LitElement {
   `;
 
     @property({type: Number})
-    aNumber = 5;
+    aNumber = 2;
 
     override render() {
 
-        return  html`${when(this.aNumber == 5, () => html`aNumber: ${this.aNumber}`, () => html`Not number`)}`;
+        return  html`${
+            when(
+                this.aNumber == 5, 
+                () => html`aNumber: ${this.aNumber}`, 
+                () => html`Not five`)
+        }`;
 
     }
 }
