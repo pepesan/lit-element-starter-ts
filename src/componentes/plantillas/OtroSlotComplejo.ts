@@ -1,6 +1,5 @@
 import {LitElement, html} from 'lit';
-import {customElement} from 'lit/decorators.js';
-import {property} from "lit/decorators";
+import {customElement, property} from 'lit/decorators.js';
 
 @customElement('mi-otro-slot-complejo')
 export class OtroSlotComplejo extends LitElement {
