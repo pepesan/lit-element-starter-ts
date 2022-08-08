@@ -15,6 +15,12 @@ export class Form extends LitElement {
     onSubmit(e: Event){
         e.preventDefault();
         console.log(this.aText);
+        const options = {
+            detail: {name: this.aText},
+            bubbles: true,
+            composed: true
+        };
+        this.dispatchEvent(new CustomEvent('mylogin', options));
     }
     override render() {
         return html`
