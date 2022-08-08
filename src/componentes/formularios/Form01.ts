@@ -37,12 +37,6 @@ export class Form01 extends LitElement {
     @state()
     myError = new z.ZodError([]);
 
-    inputHandler(event: InputEvent) {
-        event.preventDefault();
-        console.log(this.person);
-        console.log(event.target)
-    }
-
     onSubmit(e:Event){
         e.preventDefault();
         console.log(this.person);
