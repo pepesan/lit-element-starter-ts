@@ -6,6 +6,4 @@ export class Person {
     this.name = _name;
     this.age = _age;
   }
-
-
 }

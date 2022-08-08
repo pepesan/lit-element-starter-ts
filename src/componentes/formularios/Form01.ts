@@ -15,7 +15,8 @@ export class Form01 extends LitElement {
 
 
     @property({type: Object})
-    person: Person = new Person();
+    person: Person = new Person("Pepe", 14);
+    
 
     @state()
     showErrors = false;
@@ -36,9 +37,16 @@ export class Form01 extends LitElement {
     @state()
     myError = new z.ZodError([]);
 
+    inputHandler(event: InputEvent) {
+        event.preventDefault();
+        console.log(this.person);
+        console.log(event.target)
+    }
+
     onSubmit(e:Event){
         e.preventDefault();
         console.log(this.person);
+        console.log(this.person.name);
         this.validation = this.mySchema.safeParse(this.person)
         console.log(this.validation)
         console.log(this.validation.success)
@@ -59,8 +67,19 @@ export class Form01 extends LitElement {
       <form @submit="${this.onSubmit}">
           <div>
               <label for="name">Nombre</label>
-              <input id="name" type="text"  name="name" value="${this.person.name}"/>
-              ${when(
+              <input 
+                id="name" 
+                type="text"  
+                name="name" 
+                @input=${(e: Event) => {
+                        const target = e.target as HTMLInputElement;
+                        console.log(target.value);
+                        this.person.name = target.value;
+                        console.log(this.person.name)
+                    }
+                } 
+                value="${this.person.name}"/>
+                ${when(
                       !this.validation.success && this.validation.error.format().name._errors,
                       () => html`
                           <div class="input-error" id="error-name">
@@ -71,7 +90,14 @@ export class Form01 extends LitElement {
           </div>
           <div>
               <label for="age">Edad</label>
-              <input id="age" type="number"  name="age" value="${this.person.age}"/>
+              <input id="age" type="number"  name="age" value="${this.person.age}"
+                     @input=${(e: Event) => {
+                         const target = e.target as HTMLInputElement;
+                         console.log(target.value);
+                         this.person.name = target.value;
+                         console.log(this.person.age)
+                     }
+                     } />
               ${when(
                     !this.validation.success && this.validation.error.format().age._errors,
                     () => html`

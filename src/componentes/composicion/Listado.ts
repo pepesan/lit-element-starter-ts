@@ -23,7 +23,10 @@ export class Listado extends LitElement {
     override render() {
         return html`
       <h1>Listado</h1>
+      <h4>Form 1</h4>
       <mi-form aText="Texto inicial" .onSubmit="${this.manejaSubmit}">
+      <h4>Form 2</h4>
+      <mi-form aText="Texto inicial">
           
       </mi-form>
       <ul>

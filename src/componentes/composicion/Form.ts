@@ -20,7 +20,7 @@ export class Form extends LitElement {
         return html`
       <h1>Mi Form</h1>
       <form @submit="${this.onSubmit}">
-          <input type="text" value="${this.aText}"/>
+          <input type="text" .value="${this.aText}"/>
           <input type="submit" value="Enviar"/>
       </form>
       <slot></slot>
