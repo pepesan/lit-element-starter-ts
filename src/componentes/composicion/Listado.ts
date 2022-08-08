@@ -17,18 +17,36 @@ export class Listado extends LitElement {
     ];
     manejaSubmit(e: Event){
         e.preventDefault();
-        console.log("Listado: " + e.target)
+        const formulario = e.target as HTMLFormElement;
+        console.log(formulario);
+        const primerInput = formulario.children[0] as HTMLInputElement;
+        console.log(primerInput.localName);
+        console.log(primerInput.value);
+        // no podemos enviar el dato al padre, ya que este método se ejecuta desde el hijo
+        //this.addItemByString(primerInput.value);
+    }
+    private _loginListener(e: CustomEvent) {
+        console.log("captura evento desde listado");
+        this.addItemByString(e.detail.name);
+    }
+    addItemByString(name: string)
+    {
+        this.myarray = this.myarray.concat([name]);
     }
 
+    addItem()
+    {
+        this.myarray = this.myarray.concat(["added"]);
+    }
     override render() {
         return html`
       <h1>Listado</h1>
-      <h4>Form 1</h4>
-      <mi-form aText="Texto inicial" .onSubmit="${this.manejaSubmit}">
-      <h4>Form 2</h4>
-      <mi-form aText="Texto inicial">
-          
-      </mi-form>
+      <p @mylogin=${this._loginListener}>
+        <slot></slot>
+      </p>
+      
+            
+          <p><button @click="${this.addItem}" >Add</button></p>
       <ul>
           ${this.myarray.map((cadena) =>
                   html`<mi-detalle item="${cadena}">
@@ -36,7 +54,6 @@ export class Listado extends LitElement {
                   </mi-detalle>`
           )}
       </ul>
-      <slot></slot>
     `;
     }
 }

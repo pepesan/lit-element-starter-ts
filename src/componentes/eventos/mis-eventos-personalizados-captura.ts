@@ -20,7 +20,9 @@ export class MisEventosPersonalizadosCaptura extends LitElement {
     @property() name = '';
     protected override render() {
         return html`
-      <p @mylogin=${this._loginListener}><slot></slot></p>
+      <p @mylogin=${this._loginListener}>
+          <slot></slot>
+      </p>
       <p>Login: ${this.name}</p>`;
     }
     private _loginListener(e: CustomEvent) {
