@@ -15,7 +15,7 @@ export class Form01 extends LitElement {
 
 
     @property({type: Object})
-    person: Person = new Person("Pepe", 14);
+    person: Person = new Person();
     
 
     @state()
@@ -74,7 +74,7 @@ export class Form01 extends LitElement {
                 } 
                 value="${this.person.name}"/>
                 ${when(
-                      !this.validation.success && this.validation.error.format().name._errors,
+                      !this.validation.success && this.validation.error.format().name!=undefined,
                       () => html`
                           <div class="input-error" id="error-name">
                               <span >${this.validation.error.format().name._errors}</span>
@@ -88,12 +88,12 @@ export class Form01 extends LitElement {
                      @input=${(e: Event) => {
                          const target = e.target as HTMLInputElement;
                          console.log(target.value);
-                         this.person.name = target.value;
+                         this.person.age = +target.value;
                          console.log(this.person.age)
                      }
                      } />
               ${when(
-                    !this.validation.success && this.validation.error.format().age._errors,
+                    !this.validation.success && this.validation.error.format().age!=undefined,
                     () => html`
                         <div id="error-age" class="input-error" >
                             <span >${this.validation.error.format().age._errors}</span>

@@ -25,6 +25,7 @@ export class MisCiclosDeVida extends LitElement {
         super();
 
         this.prop1 = 'foo';
+        console.log("Componente MisCiclosDeVida constructor cargado")
 
     }
 
@@ -32,14 +33,15 @@ export class MisCiclosDeVida extends LitElement {
     override connectedCallback() {
 
         super.connectedCallback();
-        console.log("Componente MisCiclosDeVida cargado");
+        console.log("Componente MisCiclosDeVida connectedCallback cargado");
+        console.log("prop1: " + this.prop1);
 
     }
     // DisconnectedCallback: Método que se llama cuando un componente se quita del DOM
     override disconnectedCallback() {
 
         super.disconnectedCallback();
-        console.log("Componente MisCiclosDeVida descargado");
+        console.log("Componente MisCiclosDeVida disconnectedCallback descargado");
 
     }
 
