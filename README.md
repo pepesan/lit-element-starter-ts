@@ -132,3 +132,21 @@ For information on building application projects that include LitElement compone
 ## More information
 
 See [Get started](https://lit.dev/docs/getting-started/) on the Lit site for more information.
+
+## New External Component 
+We have added a new published component called pepesan-element
+### Repository URL
+[https://github.com/pepesan/pepesan-element](https://github.com/pepesan/pepesan-element)
+### Publish process
+* Develop the component
+* Compile the project: npm run build
+* Create a .npmignore to include all the ignore exceptions to upload to npmjs.com
+* Create an account on [npmjs.com](https://npmjs.com)
+* In the web component project root directory execute: npm login 
+* Input the username, password, email and OTP
+* Check the project version, and the name, main, and module in the package.json 
+* Upload the project: npm publish
+* To use the published component, install the dependency in another project: npm i name_of_the_npm_package
+* Modify your index.html to include the dependency: ../node_modules/pepesan_element/build/pepesan-element.js
+* Modify yout html code to include the element <pepesan-element></pepesan-element>
+* Test in the development environment if the element is shown
