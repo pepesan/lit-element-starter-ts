@@ -16,7 +16,7 @@ function delay(ms: number) {
 const sleepTime = 2000;
 
 
-suite('my-element', () => {
+suite('my-http-request-v2', () => {
   test('is defined', () => {
     const el = document.createElement('my-http-request');
     assert.instanceOf(el, MyHttpRequest);
