@@ -1,24 +1,27 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-interface Partido{
-    dipu: string;
-    imagen: string;
-    nombre: string
+
+interface User {
+    completed: boolean;
+    id: number;
+    title: string;
+    userId: number;
 }
 
 @customElement('my-http-request-v2')
 export class MyHttpRequestV2 extends LitElement {
 
     static override styles = css`
-      img{
-        width: 100px;
-      }
   `;
 
     @property({type: Object})
-    partidos: Partido[] = [];
-
+    usuario: User= {
+        completed: false,
+        id: 1,
+        title: "",
+        userId: 1
+    };
 
     constructor() {
         super();
@@ -28,33 +31,52 @@ export class MyHttpRequestV2 extends LitElement {
 
 
     async load() {
-        const response = await fetch('https://cursosdedesarrollo.com/pactometro/resultados.json');
-        this.partidos = await response.json();
-        //console.log(this.partidos);
+        const myRequest = fetch('https://jsonplaceholder.typicode.com/todos/1');
+        myRequest.then(async response => {
+            console.log(response);
+            const miJson = await response.json();
+            console.log(miJson);
+        })
+            .catch(error => {
+                console.log(error);
+            })
     }
     private clicked = () => {
         this.load();
     };
+    private clickedPost = () => {
+
+        const myRequest = fetch('https://jsonplaceholder.typicode.com/posts',{
+            // Adding method type
+            method: "POST",
+
+            // Adding body or contents to send
+            body: JSON.stringify({
+                title: "foo",
+                body: "bar",
+                userId: 1
+            }),
+
+            // Adding headers to the request
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+        // Converting to JSON
+        myRequest.then(async response =>{
+            const resJson = await response.json()
+            console.log(resJson)
+        } );
+        // Displaying results to console
+        myRequest.catch(error => console.log(error));
+
+    };
     override render() {
         return html`
       <h1>Mi Http Request</h1>
-      <p><button id="http-load" @click="${this.clicked}">Load</button></p>
-      <ul>
-          ${this.partidos.map(
-                  // parámetro de entrada
-                  (item) => // arrow o flecha (arrow function o lambdas)
-                          html`<li id="partido-${item.nombre}">
-                           <p><span>${item.nombre}: ${item.dipu}</span> <img src="https://cursosdedesarrollo.com/pactometro/img/${item.imagen}"/></p>
-                          </li>` // sentencias de la función
-                  // esto es com un return de lo que devulve html``
-          )}
-          <!--
-              function (item:string){
-                  return html item;
-              }
-          
-          -->
-      </ul>
+      <p><button id="http-load" @click="${this.clicked}">Load Get</button></p>
+      <p><button id="http-load" @click="${this.clickedPost}">Load Post</button></p>
+ 
       <slot></slot>
     `;
     }
