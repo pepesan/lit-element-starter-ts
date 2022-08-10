@@ -34,8 +34,6 @@ export class Form01 extends LitElement {
             format : () => {}
         }
     };
-    @state()
-    myError = new z.ZodError([]);
 
     onSubmit(e:Event){
         e.preventDefault();
@@ -70,6 +68,7 @@ export class Form01 extends LitElement {
                         console.log(target.value);
                         this.person.name = target.value;
                         console.log(this.person.name)
+                        this.validation = this.mySchema.safeParse(this.person)
                     }
                 } 
                 value="${this.person.name}"/>
@@ -90,6 +89,7 @@ export class Form01 extends LitElement {
                          console.log(target.value);
                          this.person.age = +target.value;
                          console.log(this.person.age)
+                         this.validation = this.mySchema.safeParse(this.person)
                      }
                      } />
               ${when(
@@ -102,7 +102,12 @@ export class Form01 extends LitElement {
                     () => html``)}
           </div>
           <div>
-              <input type="submit" value="Enviar">
+              ${when(
+                      this.validation.success,
+                      () => html`<input type="submit" value="Enviar">`,
+                      () => html`<input type="submit" value="Enviar" disabled>`, 
+              )}
+              
           </div>
       </form>
       <slot></slot>

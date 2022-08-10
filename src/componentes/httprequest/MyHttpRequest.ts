@@ -30,7 +30,7 @@ export class MyHttpRequest extends LitElement {
     async load() {
         const response = await fetch('https://cursosdedesarrollo.com/pactometro/resultados.json');
         this.partidos = await response.json();
-        console.log(this.partidos);
+        //console.log(this.partidos);
     }
 
     override render() {
@@ -40,7 +40,7 @@ export class MyHttpRequest extends LitElement {
           ${this.partidos.map(
                   // parámetro de entrada
                   (item) => // arrow o flecha (arrow function o lambdas)
-                          html`<li >
+                          html`<li id="partido-${item.nombre}">
                            <p><span>${item.nombre}: ${item.dipu}</span> <img src="https://cursosdedesarrollo.com/pactometro/img/${item.imagen}"/></p>
                           </li>` // sentencias de la función
                   // esto es com un return de lo que devulve html``
