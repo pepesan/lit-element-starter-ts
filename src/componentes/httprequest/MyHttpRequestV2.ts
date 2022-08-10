@@ -75,8 +75,10 @@ export class MyHttpRequestV2 extends LitElement {
         return html`
       <h1>Mi Http Request</h1>
       <p><button id="http-load" @click="${this.clicked}">Load Get</button></p>
-      <p><button id="http-load" @click="${this.clickedPost}">Load Post</button></p>
- 
+      <p><button id="http-load-post" @click="${this.clickedPost}">Load Post</button></p>
+      <div>
+          <p>${this.usuario.userId}</p>
+      </div>
       <slot></slot>
     `;
     }
