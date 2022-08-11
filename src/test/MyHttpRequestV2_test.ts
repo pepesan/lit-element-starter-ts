@@ -8,6 +8,17 @@ import {MyHttpRequestV2} from '../componentes/httprequest/MyHttpRequestV2';
 
 import {fixture,assert} from '@open-wc/testing';
 import {html} from 'lit/static-html.js';
+import * as sinon from 'sinon';
+function jsonOk (body: any) {
+  const mockResponse = new window.Response(JSON.stringify(body), { //the fetch API returns a resolved window Response object
+    status: 200,
+    headers: {
+      'Content-type': 'application/json'
+    }
+  });
+  return Promise.resolve(mockResponse);
+}
+
 
 
 function delay(ms: number) {
@@ -45,8 +56,10 @@ suite('my-http-request-v2', () => {
       </p>
       <div>
         <p>
-          1
+          0
         </p>
+        <p>
+       </p>
       </div>
       <slot></slot>
     `
@@ -79,10 +92,57 @@ suite('my-http-request-v2', () => {
         <p>
           1
         </p>
+        <p>
+          delectus aut autem
+       </p>
       </div>
       <slot></slot>
         `
         );
       });
+
+  test('mock the api service', async () => {
+    const el = await fixture(html`<my-http-request-v2 name="Test"></my-http-request-v2>`);
+    const button = el.shadowRoot!.querySelector('button#http-load')! as HTMLButtonElement;
+    const MOCK_JSON = {
+      completed: false,
+      id: 2,
+      title: "Hola hola",
+      userId: 2
+    };
+    const stub = sinon.stub(window, 'fetch'); //add stub
+    stub.onCall(0).returns(jsonOk(MOCK_JSON));
+    button.click();
+    await delay(sleepTime);
+    assert.shadowDom.equal(
+        el,
+        `
+          <h1>
+        Mi Http Request
+      </h1>
+
+       <p>
+        <button id="http-load">
+          Load Get
+        </button>
+      </p>
+      <p>
+        <button id="http-load-post">
+          Load Post
+        </button>
+      </p>
+      <div>
+        <p>
+          2
+        </p>
+        <p>
+          Hola hola
+       </p>
+
+      </div>
+      <slot></slot>
+        `
+    );
+  });
 
 });

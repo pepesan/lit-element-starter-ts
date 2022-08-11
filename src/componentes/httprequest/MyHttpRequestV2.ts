@@ -1,13 +1,9 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {ApiRestClient} from "./ApiRestClient";
+import {Post} from "./Post";
 
 
-interface User {
-    completed: boolean;
-    id: number;
-    title: string;
-    userId: number;
-}
 
 @customElement('my-http-request-v2')
 export class MyHttpRequestV2 extends LitElement {
@@ -15,34 +11,30 @@ export class MyHttpRequestV2 extends LitElement {
     static override styles = css`
   `;
 
+    public apiRestClient: ApiRestClient;
+
     @property({type: Object})
-    usuario: User= {
+    post: Post= {
         completed: false,
-        id: 1,
+        id: 0,
         title: "",
-        userId: 1
+        userId: 0
     };
 
     constructor() {
         super();
-
+        this.apiRestClient = new ApiRestClient();
     }
 
 
 
-    async load() {
-        const myRequest = fetch('https://jsonplaceholder.typicode.com/todos/1');
-        myRequest.then(async response => {
-            console.log(response);
-            const miJson = await response.json();
-            console.log(miJson);
-        })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+
     private clicked = () => {
-        this.load();
+        const result = this.apiRestClient.load();
+        result.then((data) => {
+            this.post = data;
+            console.log(this.post);
+        })
     };
     private clickedPost = () => {
 
@@ -77,7 +69,8 @@ export class MyHttpRequestV2 extends LitElement {
       <p><button id="http-load" @click="${this.clicked}">Load Get</button></p>
       <p><button id="http-load-post" @click="${this.clickedPost}">Load Post</button></p>
       <div>
-          <p>${this.usuario.userId}</p>
+          <p>${this.post.userId}</p>
+          <p>${this.post.title}</p>
       </div>
       <slot></slot>
     `;
